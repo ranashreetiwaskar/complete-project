@@ -12,8 +12,8 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 const routes: Routes = [{ path: '', component: ViewAllProductsComponent },
   { path: 'create-product', component: CreateProductComponent },
   { path: 'list-products', component: ViewAllProductsComponent },
-  { path: 'search', component: ViewAllProductsByCategoryComponent },
-  { path: 'search-date', component: ViewAllProductsByDateComponent },
+  { path: 'search-category/:id', component: ViewAllProductsByCategoryComponent },
+  { path: 'search-date/:', component: ViewAllProductsByDateComponent },
   { path: 'delete-product/:id', component: DeleteProductComponent },
   { path: 'view-product/:id', component: ViewProductComponent },
   { path: 'update-product/:id', component: UpdateProductComponent }
