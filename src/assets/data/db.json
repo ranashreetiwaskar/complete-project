@@ -1,0 +1,78 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Headphone - 1",
+      "category_id": 1,
+      "description": "Description goes here",
+      "product_image": "img_path",
+      "price": 500,
+      "is_available": true,
+      "rating": 4,
+      "reviews": 120,
+      "vendor_name": "Seller - 1",
+      "warranty": 2
+    },
+    {
+      "id": 2,
+      "name": "Headphone - 2",
+      "category_id": 1,
+      "description": "Description goes here",
+      "product_image": "img_path",
+      "price": 400,
+      "is_available": true,
+      "rating": 6,
+      "reviews": 250,
+      "vendor_name": "Seller - 1",
+      "warranty": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Amit Gawande",
+      "gender": "Male",
+      "email": "amit@gmail.com",
+      "password": "amit@123"
+    },
+    {
+      "id": 2,
+      "name": "Ashwin Kamble",
+      "gender": "Male",
+      "email": "ashwin@gmail.com",
+      "password": "ashwin@123"
+    }
+  ],
+
+  "categories": [
+    { "id": 1, "categoryName": "Polo Tshirts" },
+    { "id": 2, "categoryName": "Soccer Tshirts" },
+    { "id": 3, "categoryName": "Casual Tshirts" }
+  ],
+
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": [
+    {
+      "id": 1,
+      "name": "Akash Borkar",
+      "role": "admin",
+      "access_area": "all_access"
+    },
+    {
+      "id": 2,
+      "role": "user",
+      "name": "Amit Gawande",
+      "email": "amit@gmail.com",
+      "password": "amit@123",
+      "access_area": "limited_access"
+    },
+    {
+      "id": 3,
+      "role": "user",
+      "name": "Ashwin Kamble",
+      "email": "ashwin@gmail.com",
+      "password": "ashwin@123",
+      "access_area": "limited_access"
+    }
+  ]
+}
