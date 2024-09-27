@@ -18,6 +18,7 @@ export class SidebarComponent implements OnInit{
   ngOnInit(): void {
 
     this.productsService.getCategories().subscribe(data => {
+      console.log(data)
       this.categoryList = data;
     });
   }
