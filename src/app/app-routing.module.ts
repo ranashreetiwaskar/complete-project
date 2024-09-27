@@ -11,6 +11,7 @@ const routes: Routes = [
   // { path:'log-in', component: LoginComponent },
   // { path:'dashboard', component: DashboardComponent },
   // { path:'sign-up', component: SignupComponent },
+  { path: '', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
   { path: 'orders', component: ListOrdersComponent }
 ];

@@ -48,7 +48,7 @@ export class ProductsService {
   }
 
   searchCategoryProducts(categoryId: any): Observable<Product>{
-    const productUrl = 'http://localhost:3000/products/category='+categoryId;
+    const productUrl = 'http://localhost:3000/products?category_id='+categoryId;
 
     return this.httpClient.get<Product>(productUrl); //return an Observable
   }
