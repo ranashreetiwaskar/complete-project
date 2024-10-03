@@ -8,19 +8,20 @@ import { ViewAllProductsByCategoryComponent } from './view-all-products-by-categ
 import { ViewAllProductsByDateComponent } from './view-all-products-by-date/view-all-products-by-date.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { authGuard } from '../services/auth.guard';
 
-const routes: Routes = [{ path: '', component: ViewAllProductsComponent },
+const productRoutes: Routes = [
   { path: 'create-product', component: CreateProductComponent },
-  { path: 'list-products', component: ViewAllProductsComponent },
+  { path: 'list-products', component: ViewAllProductsComponent, canActivate: [authGuard] },
   { path: 'category/:id', component: ViewAllProductsByCategoryComponent },
   { path: 'search-date/:', component: ViewAllProductsByDateComponent },
   { path: 'delete-product/:id', component: DeleteProductComponent },
   { path: 'view-product/:id', component: ViewProductComponent },
-  { path: 'update-product/:id', component: UpdateProductComponent }
+  { path: 'update-product/:id', component: UpdateProductComponent },
+  { path: 'fork-join', component: ProductsComponent }
 ];
-
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(productRoutes)],
   exports: [RouterModule]
 })
 export class ProductsRoutingModule { }

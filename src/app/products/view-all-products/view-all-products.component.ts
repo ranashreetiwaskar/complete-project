@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
-import { from, take, map, forkJoin, of, mergeMap, toArray } from 'rxjs';
+import { from, take, map, forkJoin, of, mergeMap, toArray, interval, filter, exhaustMap, concatMap, exhaustAll, switchMap, pipe, mergeAll } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-all-products',
@@ -10,8 +11,10 @@ import { from, take, map, forkJoin, of, mergeMap, toArray } from 'rxjs';
 export class ViewAllProductsComponent implements OnInit {
 
   productlist: any;
+  dataIs: any;
+  dataIs2: any;
 
-  constructor( private productsService: ProductsService ){ }
+  constructor( private productsService: ProductsService, private http: HttpClient ){ }
 
   ngOnInit(): void {
     
@@ -21,5 +24,16 @@ export class ViewAllProductsComponent implements OnInit {
       
   });
 
-}
+  const arr = interval(1).pipe(filter((val) => val > 0 ),(take(5)));
+  
+
+    arr.pipe(mergeMap(id => {
+      return this.http.get(`http://localhost:3000/products/${id}`)
+    })).subscribe((postDetails) => {
+      console.log(postDetails);
+
+    })
+
+  }
+    
 }
