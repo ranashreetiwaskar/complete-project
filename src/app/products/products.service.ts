@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from './product';
 import { Category } from './../site-framework/category';
 import { Observable } from 'rxjs';
@@ -12,10 +12,15 @@ export class ProductsService {
   constructor( private httpClient: HttpClient ) { }
 
 
+  
   getAllProducts(): Observable<Product>{
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'applications/json')
+    headers = headers.append('Content-Type', 'text/html')
     const productUrl = 'http://localhost:3000/products';
     
-    return this.httpClient.get<Product>(productUrl); //return an Observable
+    return this.httpClient.get<Product>(productUrl,{headers: headers}
+    ); //return an Observable
   }
 
   getCategories(): Observable<Category>{
